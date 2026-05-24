@@ -37,4 +37,17 @@ export class ProductsController {
         create(@Body() Body:{name: string; description?: string; price: number; stock: number; inActive?: boolean;}) {
             return this.productsService.create(Body);
         }
+
+        @Put(':id')
+        update(
+            @Param('id', ParseIntPipe) id: number,
+            @Body() body: {name: string; description?: string; price: number; stock: number; insActive?: boolean},
+        ) {
+            const product = this.productsService.update(id, body);
+            if (!product) {
+                throw new NotFoundException(`Producto con id ${id} no encontrado`);
+            }
+            return product;
+        }
+
 }

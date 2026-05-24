@@ -35,5 +35,19 @@ export class ProductsService {
         this.products.push(product);
         return product;
     }
+    update(
+        id: number,
+        data: Partial<Pick<Product, 'name' | 'description' | 'price' | 'stock' | 'isActive'>>,
+    ): Product | undefined {
+        const index = this.products.findIndex((p) => p.id ===id);
+        if (index === -1) return undefined
+
+        this.products[index] = {
+            ...this.products[index],
+            ...data,
+            updatedAt: new Date(),
+        };
+        return this.products[index];
+    }
 }
 
