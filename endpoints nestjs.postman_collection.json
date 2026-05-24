@@ -84,6 +84,36 @@
         "header": []
       },
       "response": []
+    },
+    {
+      "name": "updatePut",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Laptop\",\n  \"description\": \"Procesador i7, 16GB RAM, RTX 4060\",\n  \"price\": 1299.99,\n  \"stock\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
